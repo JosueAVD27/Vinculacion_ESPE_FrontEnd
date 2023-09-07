@@ -1,0 +1,71 @@
+<article class="portfolio active" data-page="comunidad">
+    <header>
+        <h2 class="h2 article-title">Directorio</h2>
+    </header>
+    <section class="projects">
+        <ul class="filter-list">
+            <li class="filter-item">
+                <button [class.active]="isFilterItemActive('Entidad Pública')"
+                    (click)="selectFilterValue('Entidad Pública')">Organismos</button>
+            </li>
+            <li class="filter-item">
+                <button [class.active]="isFilterItemActive('Escuela')"
+                    (click)="selectFilterValue('Escuela')">Escuelas</button>
+            </li>
+            <li class="filter-item" hidden>
+                <button [class.active]="isFilterItemActive('Negocio')"
+                    (click)="selectFilterValue('Negocio')">Negocios</button>
+            </li>
+        </ul>
+
+        <div class="filter-select-box">
+            <select class="filter-select" [(ngModel)]="selectedFilterValue">
+                <option value="Entidad Pública">Organismos</option>
+                <option value="Escuela">Escuelas</option>
+                <option hidden value="Negocio">Negocios</option>
+            </select>
+        </div>
+
+        <ul class="project-list">
+            <li class="project-item" *ngFor="let categoria of categoria"
+                [class.active]="isFilterItemActive(categoria.category)" (click)="openPopup(categoria)">
+                <a class="seleccionar_targeta">
+                    <figure class="project-img">
+                        <div class="project-item-icon-box">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
+                        <img src="{{ categoria.img }}" alt="{{ categoria.title }}" loading="lazy">
+                    </figure>
+                    <h3 class="project-title">{{ categoria.title }}</h3>
+                    <p class="project-category">{{ categoria.category }}</p>
+                </a>
+            </li>
+        </ul>
+    </section>
+</article>
+
+<div class="popup-overlay" [ngClass]="{ 'open': popupData }" *ngIf="popupData" (click)="closePopup()"></div>
+
+<div class="popup" [ngClass]="{ 'open': popupData }" *ngIf="popupData">
+    <button class="close-button" (click)="closePopup()">&times;</button>
+    <h1>{{ popupData.title }}</h1>
+    <p>{{ popupData.category }}</p>
+    <div class="contenedor_items_popup">
+        <hr>
+        <div class="contenedor_item1">
+            <h3>Horario de atención: </h3>
+            <p>{{ popupData.atencion }}</p>
+            <h3>Número de contacto: </h3>
+            <p>{{ popupData.contacto }}</p>
+            <h3>Correo electrónico: </h3>
+            <p>{{ popupData.correo }}</p>
+            <h3>Ubicación: </h3>
+            <p><a href="{{ popupData.ubicacion }}" target="_blank">Ver en Maps</a></p>
+        </div>
+
+        <div class="contenedor_item2">
+            <img class="imagen_popup" src="{{ popupData.imgPop }}">
+        </div>
+    </div>
+    <!-- Otros elementos del popup -->
+</div>

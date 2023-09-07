@@ -1,0 +1,53 @@
+<article class="about active" data-page="nosotros">
+    <header>
+        <h2 class="h2 article-title">Sobre Nosotros</h2>
+    </header>
+    <section>
+        <h3 class="h3 form-title title_desarrolladores">Equipo de desarrollo</h3>
+        <div class="img_general_mosotros">
+            <img class="imagenITIN" src="../../assets/img/logos/ITIN.png" alt="Itin">
+        </div>
+        <p class="service-item-text">
+            El aplicativo web "Seguridad Parroquial" es una herramienta diseñada para ayudarte en la gestión de la seguridad en tu parroquia y está dirigido a todos los miembros de la comunidad parroquial, en el cual podremos obtener información sobre robos, zonas de riesgo, escuelas y restaurantes, los cuales se encontraran referenciados en el sitio de SE SURVEY.
+        </p>
+        <br>
+        <p class="service-item-text">
+            De la misma manera el principal objetivo de este desarrollo web, es la presentación de ciertas variedades de estadísticas de lo que transcurre a lo largo de los días, meses, semanas y años.
+        </p>
+        <h3 class="h3 form-title title_desarrolladores">Desarrolladores Web</h3>
+        <div class="contenedor_foto">
+            <div *ngFor="let datosWeb of datosWeb">
+                <figure class="targeta_foto">
+                    <div>
+                        <img class="fotosAdmin" src="{{ datosWeb.url }}" alt="{{ datosWeb.name }}">
+                    </div>
+                    <h4 class="h4 form-title">{{ datosWeb.name }}</h4>
+                    <hr class="separador_admins">
+                    <div class="contenedor_info">
+                        <h5>{{ datosWeb.range }}</h5>
+                        <p>{{ datosWeb.gmail }}</p>
+                    </div>
+                    <hr class="separador_admins">
+                </figure>
+            </div>
+        </div>
+        <br>
+        <h3 class="h3 form-title title_desarrolladores">Desarrolladores Móvil</h3>
+        <div class="contenedor_foto">
+            <div *ngFor="let datosMovil of datosMovil">
+                <figure class="targeta_foto">
+                    <div>
+                        <img class="fotosAdmin" src="{{ datosMovil.url }}" alt="{{ datosMovil.name }}">
+                    </div>
+                    <h4 class="h4 form-title">{{ datosMovil.name }}</h4>
+                    <hr class="separador_admins">
+                    <div class="contenedor_info">
+                        <h5>{{ datosMovil.range }}</h5>
+                        <p>{{ datosMovil.gmail }}</p>
+                    </div>
+                    <hr class="separador_admins">
+                </figure>
+            </div>
+        </div>
+    </section>
+</article>

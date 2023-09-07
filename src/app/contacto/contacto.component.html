@@ -1,0 +1,32 @@
+<article class="contact active" data-page="contacto">
+    <header>
+        <h2 class="h2 article-title">Contacto</h2>
+    </header>
+    <section class="contact-form">
+        <h3 class="h3 form-title title_desarrolladores">Docentes Involucrados</h3>
+        <div class="img_general_mosotros">
+            <img class="imagenNosotros" src="../../assets/img/logos/ESPE.png" alt="Logo ESPE">
+        </div>
+
+        <p class="service-item-text">
+            Docentes involucrados en el proyecto “Aplicativo web para la seguridad de Luz de América”, que con su guía y compromiso brindaron su apoyo para el desarrollo de esta página web.
+        </p>
+
+        <div class="contenedor_foto_docente">
+            <div *ngFor="let datos of datos">
+                <figure class="targeta_foto_docente">
+                    <div>
+                        <img class="fotosAdminDocente" src="{{ datos.url }}" alt="{{ datos.name }}">
+                    </div>
+                    <h4 class="h4 form-title">{{ datos.name }}</h4>
+                    <hr class="separador_admins">
+                    <div class="contenedor_info">
+                        <h5>{{ datos.range }}</h5>
+                        <p>{{ datos.gmail }}</p>
+                    </div>
+                    <hr class="separador_admins">
+                </figure>
+            </div>
+        </div>
+    </section>
+</article>
